@@ -1,7 +1,6 @@
 import os
-import urllib.request
 
-from flask import Response, Flask, flash
+from flask import Flask, flash
 from werkzeug.utils import secure_filename
 from flask import request, redirect, url_for, render_template
 
@@ -34,7 +33,7 @@ def upload_image():
         return redirect(request.url)
 
     if file:
-        filename = secure_filename(file.filename)
+        filename = secure_filename(file.filename)  # type: ignore
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         process_image(filename)
 
@@ -80,4 +79,3 @@ def process_image(filename: str) -> None:
 
 if __name__ == "__main__":
     app.run(debug=True)
-
