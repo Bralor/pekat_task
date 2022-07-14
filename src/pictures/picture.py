@@ -1,3 +1,5 @@
+import os
+
 from typing import Any, Dict
 
 import cv2
@@ -113,8 +115,10 @@ class PictureResizer(PictureLoader):
         except ValueError:
             output = False
         else:
+            cv2.imwrite(
+                os.path.join("src", "static", "upload", self.name), resized
+            )
             output = True
-            cv2.imwrite(f"static/upload/{self.name}", resized)
         finally:
             return output
 
