@@ -83,7 +83,6 @@ class TestPictureLoader:
 
 class TestPictureResizer:
 
-
     def setup(self):
         filepath = "src/tests/arrow2.png"
         name = os.path.basename(filepath)
@@ -106,4 +105,3 @@ class TestPictureResizer:
         # sample = self.resizer.initiate_image()
         # output = self.resizer.resize_image(sample)
         # assert output
-
